@@ -1,0 +1,180 @@
+{% extends "base.html" %}
+{% load static %}
+{% block  content %}
+
+  <!--/ Intro Single star /-->
+  <section class="intro-single">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12 col-lg-8">
+          <div class="title-single-box">
+            <h1 class="title-single">{{propertY.name}}</h1>
+            <span class="color-text-a">{{propertY.location}}</span>
+          </div>
+        </div>
+        <div class="col-md-12 col-lg-4">
+          <nav aria-label="breadcrumb" class="breadcrumb-box d-flex justify-content-lg-end">
+            <ol class="breadcrumb">
+              <li class="breadcrumb-item">
+                <a href="/">Home</a>
+              </li>
+              <li class="breadcrumb-item">
+                <a href="/home/properties/">Properties</a>
+              </li>
+              <li class="breadcrumb-item active" aria-current="page">
+                {{propertY.name}}
+              </li>
+            </ol>
+          </nav>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!--/ Intro Single End /-->
+
+  <!--/ Property Single Star /-->
+  <section class="property-single nav-arrow-b">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-12">
+          <div id="property-single-carousel" class="owl-carousel owl-arrow gallery-property">
+            <div class="carousel-item-b">
+              <img src="{% static 'img/slide-2.jpg' %}" alt="">
+            </div>
+            <div class="carousel-item-b">
+              <img src="{% static 'img/slide-3.jpg' %}" alt="">
+            </div>
+            <div class="carousel-item-b">
+              <img src="{% static 'img/slide-1.jpg' %}" alt="">
+            </div>
+          </div>
+          <div class="row justify-content-between">
+            <div class="col-md-5 col-lg-4">
+              <div class="property-price d-flex justify-content-center foo">
+                <div class="card-header-c d-flex">
+                  <div class="card-box-ico">
+                    <span class="ion-money"><i class="fas fa-rupee-sign"></i></span>
+                  </div>
+                  <div class="card-title-c align-self-center">
+                    <h5 class="title-c">{{propertY.price}}</h5>
+                  </div>
+                </div>
+              </div>
+              <div class="property-summary">
+                <div class="row">
+                  <div class="col-sm-12">
+                    <div class="title-box-d section-t4">
+                      <h3 class="title-d">Quick Summary</h3>
+                    </div>
+                  </div>
+                </div>
+                <div class="summary-list">
+                  <ul class="list">
+                    <li class="d-flex justify-content-between">
+                      <strong>Property ID:</strong>
+                      <span>{{propertY.id}}</span>
+                    </li>
+                    <li class="d-flex justify-content-between">
+                      <strong>Property Status:</strong>
+                      <span>{{propertY.status}}</span>
+                    </li>
+                    <li class="d-flex justify-content-between">
+                      <strong>Location:</strong>
+                      <span>{{propertY.location}}</span>
+                    </li>
+                    
+                    
+                    <li class="d-flex justify-content-between">
+                      <strong>Area:</strong>
+                      <span>{{propertY.area}}
+                        <!-- <sup>2</sup> -->
+                      </span>
+                    </li>
+                    <li class="d-flex justify-content-between">
+                      <strong>BHK:</strong>
+                      <span>{{propertY.BHK}}</span>
+                    </li>
+                    <li class="d-flex justify-content-between">
+                      <strong>Furnishing:</strong>
+                      <span>{{propertY.furnishing}}</span>                   
+                    </li>
+                    <li class="d-flex justify-content-between">
+                      <strong>Parking:</strong>
+                      {% if propertY.parking %}
+                      <span>Available</span>
+                      {% else %}
+                      <span>Not Available</span>
+                      {% endif %}
+                    </li>
+                  </ul>
+                </div>
+                
+              </div>
+            </div>
+            <div class="col-md-7 col-lg-7 section-md-t3">
+              <div class="row">
+                <div class="col-sm-12">
+                  <div class="title-box-d">
+                    <h3 class="title-d">Property Description</h3>
+                  </div>
+                </div>
+              </div>
+              <div class="property-description">
+                <p class="description color-text-a">
+                {{propertY.description}}
+                </p>
+                <hr>
+                  
+              </div>
+              <div class="row">
+                <div class="col-sm-12">
+                  <div class="title-box-d">
+                    <h3 class="title-d">Property Address</h3>
+                  </div>
+                </div>
+              </div>
+              <div class="property-description">
+                <p class="description color-text-a">
+                {{propertY.address}}
+                </p>
+                
+                  <hr>
+              </div>
+              <div class="row section-t3">
+                <div class="col-sm-12">
+                  <div class="title-box-d">
+                    <h3 class="title-d">Amenities</h3>
+                  </div>
+                </div>
+              </div>
+              <div class="amenities-list color-text-a">
+                <ul class="list-a ">
+                  {% for am in propertY.amenities %}
+                  {% if am %}
+                  <li >{{am}}</li>
+                  {% endif %}
+                  {% endfor %}
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row" style="width: 100%;">
+          <div class="col-sm-12">
+            <div class="title-box-d section-t4" style="padding-top: 20px;">
+              <h3 class="title-d">NOTE : </h3>
+              
+            </div>
+            <p>To get further information about {{propertY.name}}, you can reach out to us. The contact details 
+              are provide on the contact page. Thank You !! <br>
+<hr>
+              <a href="/home/contact/">Go to contact page <i class="fas fa-angle-double-right"></i></a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!--/ Property Single End /-->
+
+{% endblock content %}
