@@ -8,7 +8,7 @@ from django.urls import path
 from properties.views import index,about,contact,properties,property_detail
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    path('vre-admin/', admin.site.urls),
     path('',index),
     path('home/about/',about),
     path('home/contact/',contact),
