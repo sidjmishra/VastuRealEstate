@@ -37,17 +37,10 @@
     <div class="container">
       <div class="row">
         <div class="col-sm-12">
-          <div id="property-single-carousel" class="owl-carousel owl-arrow gallery-property">
-            <div class="carousel-item-b">
-              <img src="{% static 'img/slide-2.jpg' %}" alt="">
-            </div>
-            <div class="carousel-item-b">
-              <img src="{% static 'img/slide-3.jpg' %}" alt="">
-            </div>
-            <div class="carousel-item-b">
-              <img src="{% static 'img/slide-1.jpg' %}" alt="">
-            </div>
+          <div class="row m-4">
+            <img src="{{propertY.small_thumbnail.url}}"  alt="">
           </div>
+          
           <div class="row justify-content-between">
             <div class="col-md-5 col-lg-4">
               <div class="property-price d-flex justify-content-center foo">
