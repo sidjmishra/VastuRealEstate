@@ -44,6 +44,12 @@ class Property_Information(models.Model):
         ('Cafe Area','Cafe Area'),
         ('Children Play Area','Children Play Area'),
         ('Intercom','Intercom'),
+        ('Amphitheatre','Amphitheatre'),
+        ('Yoga club','Yoga club'),
+        ('Servent room','Servent room'),
+        ('High security','High security'),
+        ('CCTV camera','CCTV camera'),
+        ('Mini banquet','Mini banquet'),
     )
     amenities = MultiSelectField(choices=AMENITIES_CHOICE)
 
