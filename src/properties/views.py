@@ -3,7 +3,7 @@ from django.shortcuts import render,get_object_or_404
 
 # Create your views here.
 from django.shortcuts import render
-from .models import Property_Information
+from .models import Property_Information,PropertyImage
 from marketing.models import Subscription
 
 def index(request):
@@ -45,7 +45,9 @@ def properties(request):
 
 def property_detail(request,id):
     propertY = get_object_or_404(Property_Information, id=id)
+    photos = PropertyImage.objects.filter(propertY=propertY)
     context = {
         'propertY':propertY,
+        'photos':photos,
     }
     return render(request, 'property-single.html',context)

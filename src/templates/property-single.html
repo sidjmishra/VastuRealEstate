@@ -39,6 +39,7 @@
         <div class="col-sm-12">
           <div class="row m-4">
             <img src="{{propertY.small_thumbnail.url}}"  alt="">
+          
           </div>
           
           <div class="row justify-content-between">
@@ -94,14 +95,15 @@
                     <li class="d-flex justify-content-between">
                       <strong>Parking:</strong>
                       {% if propertY.parking %}
-                      <span>Available</span>
+                       <span>Available</span>
                       {% else %}
                       <span>Not Available</span>
                       {% endif %}
                     </li>
                   </ul>
+           
                 </div>
-                
+                  
               </div>
             </div>
             <div class="col-md-7 col-lg-7 section-md-t3">
@@ -150,8 +152,17 @@
                 </ul>
               </div>
             </div>
-          </div>
+            
         </div>
+          </div>
+        
+          <!-- <div class="container">
+            {% for p in photos %}
+              <img src="{{p.image.url}}" style="max-width: 600px; max-height: 700px; min-height: 400px ;min-width: 400px;" alt="">
+            {% endfor %}
+          </div>
+             -->
+        
         <div class="row" style="width: 100%;">
           <div class="col-sm-12">
             <div class="title-box-d section-t4" style="padding-top: 20px;">
@@ -166,6 +177,8 @@
           </div>
         </div>
       </div>
+
+
     </div>
   </section>
   <!--/ Property Single End /-->

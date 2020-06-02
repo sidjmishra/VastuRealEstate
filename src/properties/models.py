@@ -3,20 +3,13 @@ from django.urls import reverse
 from multiselectfield import MultiSelectField
 
 # Create your models here.
-
-# class Status_Property(models.Model):
-#     category = models.CharField(max_length=100)
-
-#     def __str__(self):
-#         return self.category
-
 class Property_Information(models.Model):
     timestamp = models.DateTimeField(auto_now_add=True)
     name = models.CharField(max_length=500)
     description = models.TextField(max_length=10000)
     address = models.TextField(max_length=10000)
     BHK = models.IntegerField()
-    image = models.ImageField()
+    image = models.ImageField(blank=True)
     area = models.CharField(max_length=500,default='0sqft')
     price = models.CharField(max_length=100)
     location = models.CharField(max_length=100)
@@ -60,3 +53,10 @@ class Property_Information(models.Model):
         return reverse('property_detail',kwargs={
             'id':self.id
         })
+
+class PropertyImage(models.Model):
+    propertY = models.ForeignKey(Property_Information, default=None, on_delete=models.CASCADE)
+    image = models.ImageField(upload_to="images/") 
+
+    def __str__(self):
+        return self.propertY.name

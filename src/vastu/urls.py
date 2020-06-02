@@ -3,7 +3,7 @@ from django.conf import settings
 from django.conf.urls.static import static
 
 from django.contrib import admin
-from django.urls import path
+from django.urls import path,include
 
 from properties.views import index,about,contact,properties,property_detail
 
@@ -14,6 +14,7 @@ urlpatterns = [
     path('home/contact/',contact),
     path('home/properties/',properties, name='property_list'),
     path('home/properties/<id>/',property_detail,name='property_detail'),
+
 
 ]
 
