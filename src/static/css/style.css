@@ -621,8 +621,8 @@ a:hover {
 
 .navbar-default.navbar-reduce {
   transition: all .5s ease-in-out;
-  padding-top: 19px;
-  padding-bottom: 19px;
+  padding-top: 10px;
+  padding-bottom: 10px;
 }
 
 .navbar-default.navbar-reduce .nav-link {
