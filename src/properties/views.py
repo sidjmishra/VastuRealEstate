@@ -8,6 +8,16 @@ from marketing.models import Subscription
 
 def index(request):
     latest = Property_Information.objects.order_by('-timestamp')[0:3]
+    property_list = Property_Information.objects.all()
+    paginator = Paginator(property_list,3)
+    page_request_var = 'page'
+    page = request.GET.get(page_request_var)
+    try:
+        paginated_queryset = paginator.page(page)
+    except PageNotAnInteger:
+        paginated_queryset = paginator.page(1)
+    except EmptyPage:
+        paginated_queryset = paginator.page(paginator.num_pages)
 
     if request.method == "POST":
         email = request.POST["email"]
@@ -17,6 +27,8 @@ def index(request):
 
     context = {
         'latest': latest,
+        "queryset":paginated_queryset,
+        "page_request_var":page_request_var,
     }
     return render(request, 'index.html',context)
 

@@ -72,6 +72,82 @@
   <!--/ Carousel end /-->
 
 
+  <!--/ Property Star /-->
+  <section class="section-property section-t8">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="title-wrap d-flex justify-content-between">
+            <div class="title-box">
+              <h2 class="title-a">Latest Properties</h2>
+            </div>
+            <div class="title-link">
+              <a href="/home/properties/">All Property
+                <span class="ion-ios-arrow-forward"></span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        {% for property in queryset %}
+        <div class="col-md-4">
+          <div class="card-box-a card-shadow">
+            <div class="img-box-a">
+              <img src="{{ property.small_thumbnail.url }}" alt="" class="img-a img-fluid">
+            </div>
+            <div class="card-overlay">
+              <div class="card-overlay-a-content">
+                <div class="card-header-a">
+                  <h2 class="card-title-a">
+                    <a href="{{property.get_absolute_url}}">{{property.name}}
+                  </h2>
+                </div>
+                <div class="card-body-a">
+                  <div class="price-box d-flex">
+                    <span class="price-a"><i class="fas fa-rupee-sign"></i>. {{ property.price }} | {{property.status}}</span>
+
+                   
+                  </div>
+                  <a href="{{property.get_absolute_url}}" class="link-a">Click here to view
+                    <span class="ion-ios-arrow-forward"></span>
+                  </a>
+                </div>
+                <div class="card-footer-a">
+                  <ul class="card-info d-flex justify-content-around">
+                    <li>
+                      <h4 class="card-info-title">Area</h4>
+                      <span>{{property.area}}
+                        <sup></sup>
+                      </span>
+                    </li>
+                    <li>
+                      <h4 class="card-info-title">BHK</h4>
+                      <span>{{property.BHK}}</span>
+                    </li>
+                    <li>
+                      <h4 class="card-info-title">Venue</h4>
+                      <span>{{property.location}}</span>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+      </div>   
+  
+        <div class="carousel-item-b">
+         
+        </div>
+      
+      </div>
+    </div>
+  </section>
+
+
+
   <!--/ Services Star /-->
   <section class="section-services section-t8">
     <div class="container">
@@ -98,20 +174,10 @@
             </div>
             <div class="card-body-c">
               <p class="content-c">
-                Investment in Commercial properties in India is becoming competitive with an increasing demand for
-plug and play offices, Multi facility space and a burgeoning retail invasion.
-We offer pre-tenanted & under development properties with excellent returns, initiating and
-maximizing the zones of investment in spaces for retail and and corporate houses, restaurants,
-multiplexes and shopping malls all across MUMBAI. Our Investment advisory services include detailed
-market analysis guidance on legal and taxes.
-
+                Investment in Residential & Commercial properties in India is becoming  competitive with an increasing demand for plug and play properties, Multi facility space and a burgeoning retail invasion. We offer pre-tenanted & under development properties with excellent returns, initiating and maximizing the zones of investment in spaces for retail and corporate houses, restaurants, multiplexes and shopping malls all across MUMBAI. Our Investment advisory services include detailed market analysis guidance on legal and taxes.
               </p>
             </div>
-            <!-- <div class="card-footer-c">
-              <a href="#" class="link-c link-icon">Read more
-                <span class="ion-ios-arrow-forward"></span>
-              </a>
-            </div> -->
+            
           </div>
         </div>
       </div>
@@ -124,16 +190,12 @@ market analysis guidance on legal and taxes.
                 <span><i class="fas fa-laptop-house"></i></span>
               </div>
               <div class="card-title-c align-self-center">
-                <h2 class="title-c">Property Buying Guidance</h2>
+                <h3 class="title-c">Property Buying/Selling Guidance</h3>
               </div>
             </div>
             <div class="card-body-c">
               <p class="content-c">
-                We the Vastu Real Estate guarantee Price Transparency and Integrity in all our property transaction and
-ensure that our client gets the best price offered by the real estate developers at any time. We provide
-full co-operation between the Buyer and the developers to ensure satisfactory completion with an
-ethical and legal compliance.
-
+                We the Vastu Real Estate Guarantee Price Transparency and Integrity in all our  property transaction and ensure that our client gets the best price offered by the real estate developers at any time. We provide full co-operation between the Buyer, the Sellers and the Developers to ensure satisfactory completion with an ethical and legal compliance.
               </p>
             </div>
             <!-- <div class="card-footer-c">
@@ -147,86 +209,6 @@ ethical and legal compliance.
     </div>
   </section>
   <!--/ Services End /-->
-
-  <!--/ Property Star /-->
-  <section class="section-property section-t8">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-12">
-          <div class="title-wrap d-flex justify-content-between">
-            <div class="title-box">
-              <h2 class="title-a">Latest Properties</h2>
-            </div>
-            <div class="title-link">
-              <a href="/home/properties/">All Property
-                <span class="ion-ios-arrow-forward"></span>
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="row">
-        {% for obj in latest %}  
-        <div class="col-md-4">
-          <div class="card-box-a card-shadow">
-            <div class="img-box-a">
-              <img src="{{ obj.image.url }}" alt="" class="img-a img-fluid">
-            </div>
-            <div class="card-overlay">
-              <div class="card-overlay-a-content">
-                <div class="card-header-a">
-                  <h2 class="card-title-a">
-                    <a href="property-single.html">{{obj.name}}
-                  </h2>
-                </div>
-                <div class="card-body-a">
-                  <div class="price-box d-flex">
-                    <span class="price-a">Price | Rs.{{ obj.price }}</span>
-
-                    <span class="price-a">
-                      {% for stat in obj.status.all %}
-                        {{stat}}
-                      {% endfor %}
-                    </span>
-                  </div>
-                  <a href="#" class="link-a">Click here to view
-                    <span class="ion-ios-arrow-forward"></span>
-                  </a>
-                </div>
-                <div class="card-footer-a">
-                  <ul class="card-info d-flex justify-content-around">
-                    <li>
-                      <h4 class="card-info-title">Area</h4>
-                      <span>{{obj.area}}
-                        <sup></sup>
-                      </span>
-                    </li>
-                    <li>
-                      <h4 class="card-info-title">BHK</h4>
-                      <span>{{obj.BHK}}</span>
-                    </li>
-                    <li>
-                      <h4 class="card-info-title">Venue</h4>
-                      <span>{{obj.location}}</span>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        {% endfor %}
-      </div>   
-  
-        <div class="carousel-item-b">
-         
-        </div>
-      
-      </div>
-    </div>
-  </section>
-
-
 
 
 {% endblock content%}
