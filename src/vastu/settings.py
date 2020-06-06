@@ -113,5 +113,9 @@ VENV_PATH = os.path.dirname(BASE_DIR)
 STATIC_ROOT = os.path.join(VENV_PATH,'static_root')
 MEDIA_ROOT = os.path.join(VENV_PATH,'media_root')
 
-
-
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST_USER = 'sidjmishra007@student.sfit.ac.in'
+EMAIL_HOST_PASSWORD = 'siddhant@7'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'

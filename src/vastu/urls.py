@@ -7,11 +7,13 @@ from django.urls import path,include
 
 from properties.views import index,about,contact,properties,property_detail
 
+app_name = 'properties'
+
 urlpatterns = [
     path('vre-admin/', admin.site.urls),
     path('',index),
     path('home/about/',about),
-    path('home/contact/',contact),
+    path('home/contact/',contact, name = 'contact'),
     path('home/properties/',properties, name='property_list'),
     path('home/properties/<id>/',property_detail,name='property_detail'),
 

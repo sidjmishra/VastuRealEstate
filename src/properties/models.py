@@ -56,7 +56,7 @@ class Property_Information(models.Model):
 
 class PropertyImage(models.Model):
     propertY = models.ForeignKey(Property_Information, default=None, on_delete=models.CASCADE)
-    image = models.ImageField(upload_to="images/") 
+    image = models.ImageField(upload_to="images/")
 
     def __str__(self):
         return self.propertY.name

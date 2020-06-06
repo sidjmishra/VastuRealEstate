@@ -1,5 +1,7 @@
 from django.core.paginator import Paginator,EmptyPage,PageNotAnInteger
 from django.shortcuts import render,get_object_or_404
+from django.core.mail import send_mail
+from django.conf import settings
 
 # Create your views here.
 from django.shortcuts import render
@@ -21,6 +23,14 @@ def index(request):
 
     if request.method == "POST":
         email = request.POST["email"]
+
+        send_mail('Rgistration of user', # subject
+        'Email Body', # mail body
+        settings.EMAIL_HOST_USER, # host mail
+        [email], # user mail
+        fail_silently = False
+        )
+
         new_subscription = Subscription()
         new_subscription.email = email
         new_subscription.save()
@@ -36,6 +46,17 @@ def about(request):
     return render(request, 'about.html',{})
 
 def contact(request):
+    if request.method == "POST":
+        email = request.POST["email"]
+        subject = request.POST["subject"]
+        message = request.POST["message"]
+
+        send_mail(subject, # subject
+        message, # mail body
+        settings.EMAIL_HOST_USER, # host mail
+        [email], # user mail
+        fail_silently = False
+        )
     return render(request, 'contact.html',{})
 
 def properties(request):
